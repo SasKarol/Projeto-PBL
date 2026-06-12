@@ -1,0 +1,31 @@
+name: CI — Biblioteca Academica
+
+on:
+  push:
+    branches: ["main", "develop"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-validate:
+    name: Build e Validacao
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar codigo
+        uses: actions/checkout@v4
+
+      - name: Criar arquivo .env
+        run: |
+          echo "MONGO_USER=root" >> .env
+          echo "MONGO_PASS=${{ secrets.MONGO_PASS }}" >> .env
+          echo "MONGO_DB=biblioteca" >> .env
+
+      - name: Validar Docker Compose
+        run: docker compose config
+
+      - name: Build do Backend
+        run: docker build -t biblioteca-backend ./backend
+
+      - name: Listar imagens geradas
+        run: docker images | grep biblioteca

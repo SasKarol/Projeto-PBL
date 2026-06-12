@@ -1,0 +1,17 @@
+services:
+  backend:
+    build: ./backend
+    container_name: biblioteca_backend
+    restart: unless-stopped
+    environment:
+      MONGO_USER: ${MONGO_USER}
+      MONGO_PASS: ${MONGO_PASS}
+      MONGO_DB: ${MONGO_DB}
+      MONGO_CLUSTER: ${MONGO_CLUSTER}
+      PORT: 3000
+    ports:
+      - "3000:3000"
+
+networks:
+  app-network:
+    driver: bridge
