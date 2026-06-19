@@ -1,16 +1,35 @@
 services:
+
+  mongodb:
+    image: mongo:8
+    container_name: biblioteca_mongodb
+    restart: unless-stopped
+
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+      MONGO_INITDB_DATABASE: Biblioteca_Caso_2
+
+    ports:
+      - "27017:27017"
+
+    volumes:
+      - mongo_data:/data/db
+
   backend:
     build: ./backend
     container_name: biblioteca_backend
     restart: unless-stopped
 
+    depends_on:
+      - mongodb
+
     environment:
-      MONGO_URI: ${MONGO_URI}
+      MONGO_URI: mongodb://admin:admin123@mongodb:27017/Biblioteca_Caso_2?authSource=admin
       PORT: 3000
 
     ports:
       - "3000:3000"
 
-networks:
-  app-network:
-    driver: bridge
+volumes:
+  mongo_data:
