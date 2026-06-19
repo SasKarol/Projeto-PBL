@@ -3,12 +3,11 @@ services:
     build: ./backend
     container_name: biblioteca_backend
     restart: unless-stopped
+
     environment:
-      MONGO_USER: ${MONGO_USER}
-      MONGO_PASS: ${MONGO_PASS}
-      MONGO_DB: ${MONGO_DB}
-      MONGO_CLUSTER: ${MONGO_CLUSTER}
+      MONGO_URI: ${MONGO_URI}
       PORT: 3000
+
     ports:
       - "3000:3000"
 

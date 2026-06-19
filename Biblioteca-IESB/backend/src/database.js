@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 async function conectar() {
-  const dbEncoded = encodeURIComponent(process.env.MONGO_DB);
-  const uri = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_CLUSTER}/${dbEncoded}?retryWrites=true&w=majority`;
+  const uri = process.env.MONGO_URI;
+
   let tentativas = 0;
 
   while (tentativas < 10) {
@@ -12,6 +12,7 @@ async function conectar() {
       console.log('✅ MongoDB conectado.');
       return;
     } catch (err) {
+      console.log(err.message); // <- você colocou esta linha?
       tentativas++;
       console.log(`⏳ Aguardando MongoDB... tentativa ${tentativas}/10`);
       await new Promise((r) => setTimeout(r, 3000));
