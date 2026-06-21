@@ -1,0 +1,137 @@
+{
+  "info": {
+    "_postman_id": "c96a057a-6a9e-4c4d-ac70-b1dc1fb0c2c0",
+    "name": "Projeto-Pbl",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56040956",
+    "_collection_link": "https://go.postman.co/collection/56040956-c96a057a-6a9e-4c4d-ac70-b1dc1fb0c2c0?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Listar todos os livros",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://psychic-space-disco-4j957v94j7wq3q76p-3000.app.github.dev/livros",
+          "protocol": "https",
+          "host": [
+            "psychic-space-disco-4j957v94j7wq3q76p-3000",
+            "app",
+            "github",
+            "dev"
+          ],
+          "path": [
+            "livros"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ok",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://psychic-space-disco-4j957v94j7wq3q76p-3000.app.github.dev/health",
+          "protocol": "https",
+          "host": [
+            "psychic-space-disco-4j957v94j7wq3q76p-3000",
+            "app",
+            "github",
+            "dev"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Cadastrar livro",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"_id\": \"667a1b2c3d4e5f6789012345\",\r\n  \"titulo\": \"Clean Code\",\r\n  \"autor\": \"Robert C. Martin\",\r\n  \"status\": \"disponivel\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://psychic-space-disco-4j957v94j7wq3q76p-3000.app.github.dev/livros",
+          "protocol": "https",
+          "host": [
+            "psychic-space-disco-4j957v94j7wq3q76p-3000",
+            "app",
+            "github",
+            "dev"
+          ],
+          "path": [
+            "livros"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://psychic-space-disc-4j957v94j7wq3q76p-3000.app.github.dev/livros/6a35a9a4bf8f52de79f1b0a1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://psychic-space-disc-4j957v94j7wq3q76p-3000.app.github.dev/livros/6a35a9a4bf8f52de79f1b0a1",
+          "protocol": "https",
+          "host": [
+            "psychic-space-disc-4j957v94j7wq3q76p-3000",
+            "app",
+            "github",
+            "dev"
+          ],
+          "path": [
+            "livros",
+            "6a35a9a4bf8f52de79f1b0a1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://SUA_URL-3000.app.github.dev/livros/6a35a9a4bf8f52de79f1b0a1/status",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://psychic-space-disc-4j957v94j7wq3q76p-3000.app.github.dev/livros/6a35b12a44eff97872037ef5/status",
+          "protocol": "https",
+          "host": [
+            "psychic-space-disc-4j957v94j7wq3q76p-3000",
+            "app",
+            "github",
+            "dev"
+          ],
+          "path": [
+            "livros",
+            "6a35b12a44eff97872037ef5",
+            "status"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
